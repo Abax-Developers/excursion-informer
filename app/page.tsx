@@ -1,18 +1,19 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import ExcursionCard from "./components/ExcursionCard";
 
 export default function Home() {
   return (
-     <main className="min-h-dvh flex items-center justify-center p-8">
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <div className="card-body">
-          <h2 className="card-title">Hello, daisyUI</h2>
-          <p>Tailwind v4 + daisyUI is working.</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Primary</button>
-          </div>
-        </div>
+    <div className="min-h-screen pt-6 w-fit flex flex-col gap-4">
+      <h2 className="text-2xl font-black w-fit underline decoration-success">
+        Активни екскурзии:
+      </h2>
+      <div className="flex flex-row w-fit max-w-3xl mx-auto gap-4 flex-wrap justify-center">
+        <ExcursionCard />
+        <ExcursionCard />
+        <ExcursionCard />
+        <ExcursionCard />
       </div>
-    </main>
+    </div>
   );
 }
