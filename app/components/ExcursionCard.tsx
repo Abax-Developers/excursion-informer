@@ -1,3 +1,7 @@
+"use client";
+
+import { useQrCodeStore } from "../stores/qrCode.store";
+
 export default function ExcursionCard({
   title,
   id,
@@ -11,6 +15,14 @@ export default function ExcursionCard({
   dateOfDeparture: string;
   img: string;
 }) {
+  const setQrCode = useQrCodeStore((state) => state.setQRCode);
+  const openPopup = useQrCodeStore((state) => state.open);
+
+  const openQr = () => {
+    setQrCode(id, title, img);
+    openPopup();
+  };
+
   return (
     <div className="card w-72 flex grow bg-base-100 card-md shadow-sm relative pt-">
       <figure>
@@ -18,7 +30,7 @@ export default function ExcursionCard({
       </figure>
       <div className="card-body relative">
         <p className="absolute top-1 right-1 text-xs opacity-30">{id}</p>
-        <h2 className="card-title">2 дневна екскурзия в Сахара</h2>
+        <h2 className="card-title">{title}</h2>
         <div className="flex flex-col gap-2 my-2 py-1 border-t border-b border-base-content/10">
           <div className="flex justify-between flex-row">
             <p className="text-sm opacity-70 flex grow">Дата на отпътуване:</p>
@@ -34,7 +46,12 @@ export default function ExcursionCard({
           </div>
         </div>
         <div className="justify-between card-actions">
-          <button className="btn btn-accent opacity-70">QR Code</button>
+          <button
+            className="btn btn-accent opacity-70"
+            onClick={() => openQr()}
+          >
+            QR Code
+          </button>
           <button className="btn btn-primary">Детайли</button>
         </div>
       </div>

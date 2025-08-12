@@ -1,3 +1,4 @@
+import QRCodePopup from "./components/QRCodePopup";
 import "./globals.css";
 
 export default function RootLayout({
@@ -8,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="bg">
       <body className="pt-22 bg-base-200">
-        <div className="navbar fixed top-0 bg-base-100 shadow-sm">
+        <div className="navbar fixed top-0 bg-base-100 shadow-sm z-30">
           <div className="flex-1">
             <a className="pl-3 text-xl">Abax.BG</a>
           </div>
@@ -34,6 +35,7 @@ export default function RootLayout({
             </p>
           </aside>
         </footer>
+        <QRCodePopup />
       </body>
     </html>
   );
