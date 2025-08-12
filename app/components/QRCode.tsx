@@ -9,7 +9,7 @@ export default function QRCode({ excursionId }: { excursionId: string }) {
       <QRCodeSVG
         includeMargin
         className="w-full h-full"
-        value={`${process.env.WEBAPP_URL}/join/${excursionId}`}
+        value={`${process.env.NEXT_PUBLIC_WEBAPP_URL}/join/${excursionId}`}
       />
     </figure>
   );
